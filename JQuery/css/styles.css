@@ -1,0 +1,202 @@
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/cabin-v12-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Cabin'), local('Cabin-Regular'),
+       url('../fonts/cabin-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/cabin-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/cabin-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/cabin-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/cabin-v12-latin-regular.svg#Cabin') format('svg'); /* Legacy iOS */
+}
+
+/* cabin-700 - latin */
+
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/cabin-v12-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Cabin Bold'), local('Cabin-Bold'),
+       url('../fonts/cabin-v12-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/cabin-v12-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/cabin-v12-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/cabin-v12-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/cabin-v12-latin-700.svg#Cabin') format('svg'); /* Legacy iOS */
+}
+
+
+body {
+ font-family: 'Cabin';
+ font-size: 16px;
+ font-weight: 400;
+ width: 100vw;
+ height: 100vh;
+ overflow-x: hidden;
+ margin: 0;
+ background: orange;
+ -webkit-animation: fadeIn .75s linear; /* Safari 4+ */
+  -moz-animation:    fadeIn .75s linear; /* Fx 5+ */
+  -o-animation:      fadeIn .75s linear; /* Opera 12+ */
+  animation:         fadeIn .75s linear; /* IE 10+, Fx 29+ */
+}
+
+.nav {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 0;  
+    background: #222;
+    color: darkorange;
+    margin: 0;
+    padding: 1em 2em 1em 2em; 
+}
+
+.nav-logo {
+    flex: 1 1 0;
+    align-self: flex-start;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-decoration-line: none;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    flex: 0 1 auto;
+    list-style: none;
+    align-self: center;
+    margin: 0;
+    padding: 0;   
+}
+
+.nav-items li a {
+    font-weight: 700;
+    padding: 0 1em 0 1em;
+    color: grey;
+    text-decoration-line: none;
+}
+
+.nav-items li a:hover {
+    color: darkorange;
+}
+
+.container {
+ display: flex;
+ flex-flow: column wrap;
+ padding: 1em 2em 1em 1em;
+
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(auto, 2fr);
+    grid-gap: 1em;
+    padding-top: 1em;
+}
+
+.player {
+    display: flex;
+    flex-flow: column wrap;
+    background: #222;
+    padding: 0;
+    margin: 0;
+    border-radius: 3px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.player img {
+   padding: 0;
+   margin: 0;
+   width: auto;
+   height: 30vh;
+   border-top-left-radius: 3px;
+   border-top-right-radius: 3px;
+}
+
+.player .player-description {
+    color: #DDD;
+    padding-left: 1em;
+}
+
+.player .player-title {
+   flex: 0 1 max-content;
+   align-self: flex-start;
+   padding-left: 1em;
+   width: max-content;
+   font-size: 1.2em;
+   font-weight: 700;
+   color: #FFF;
+   
+}
+
+.player .genre-list {
+    display: inline-flex;
+    align-self: baseline;
+    list-style: none;
+    padding-left: 1em;
+}
+
+.genre-list .genre {
+    color: orange;
+    margin: 0 5px 0 5px;
+    padding: .5em;
+    border: 2px solid orange;
+    border-radius: 3px;
+
+}
+
+h1, h2, h3, h3 {
+    font-family: 'Cabin';
+    font-weight: 700; 
+}
+
+/* Media Queries */
+
+
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ @media only screen and (max-width: 600px) {
+    .main-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: minmax(auto, 2fr);
+        grid-gap: 1em;
+        padding-top: 1em;
+    }
+ }
+ 
+ /* Medium devices (landscape tablets, 768px and up) */
+ @media only screen and (min-width: 768px) {
+    .main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: minmax(auto, 2fr);
+        grid-gap: 1em;
+        padding-top: 1em;
+    }
+ }
+
+
+
+/* Keyframes */
+
+@-webkit-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @-moz-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @-o-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+

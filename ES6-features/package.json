@@ -1,0 +1,15 @@
+{
+  "name": "ES6-features",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Matheus",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49"
+  },
+  "scripts": {
+    "dev": "babel ./main.js -o ./bundle.js -w"
+  }
+}
