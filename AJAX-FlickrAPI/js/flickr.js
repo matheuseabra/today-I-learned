@@ -1,31 +1,43 @@
 
 $(document).ready(function () {
 
-    $('button').click(function() {
+    $('a').click(function() {
 
-        $('button').removeClass('selected');
-        $(this).addClass('selected');
+    var animal = $(this).text();
+        
+    // Set the flicker api url here
+    const flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 
-        var animal = $(this).text();
-        var flickrAPI = "https://api.flickr.com/services/feeds/photos_public.gne?format=jsoncallback=?";
-        var flickrOptions = {
-            tags: animal,
-            format: "json"
-        };
+    // Set the tag display options
+    var options = {
+        tags: animal,
+        format: "json"
+    };
 
-        function displayPhotos(data) {
-            var photosGrid;
-            $.each(data.items, function(i, data){
-                photosGrid += '<li>';
-                photosGrid += '<a href="'+ data.link +'">';
-                photosGrid += '<img src="'+ data.media.m +'" /></a><li>';
-            });
+    // Get json format data using $.getJSON()
+    $.getJSON(flickerAPI, options)
+        .done(OnApiCallSuccess)
+        .fail(OnApiCallError);
 
-    
-            $("img").attr("src", data.media.m).appendTo("#animals-feed");
-        }
+    // Api call success callback function
+    function OnApiCallSuccess(data) {
+     
+        $.each(data.items, function(i, item) {
 
-        $.getJSON(flickrAPI, flickrOptions, displayPhotos);
-    });
+            $("<img class='photo-item'>").attr("src", item.media.m).appendTo("#animals-feed");
+         
+            // Load only the first 6 images for demo
+            if (i === 29) return false;
+        });
+
+        
+    }
+
+    // Api call error callback function
+    function OnApiCallError(jqxhr, textStatus, error) {
+    var err = textStatus + ", " + error;
+    console.log("Request Failed: " + err);
+    }
+        });
 
 }); //load Javascript whe HTML is ready
